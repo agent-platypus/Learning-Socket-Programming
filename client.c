@@ -7,6 +7,7 @@
 #include <netinet/in.h>
 #include <pthread.h>
 
+#define MAX_LEN 100
 
 int main(int argc, char* argv[]) {
     struct addrinfo hints, *res;
@@ -36,8 +37,8 @@ int main(int argc, char* argv[]) {
         return 3;
     }   
 
-    char rxbuf[100];
-    char txbuf[100];
+    char rxbuf[MAX_LEN];
+    char txbuf[MAX_LEN];
     int msglen;
     int numBytes;
     while(1) {

@@ -6,6 +6,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
+#define MAX_LEN 100
 
 int main(int argc, char* argv[]) {
 
@@ -74,7 +75,7 @@ int main(int argc, char* argv[]) {
 
     while(1) {
         printf("Enter a message to send to the client = ");
-        char message[100];
+        char message[MAX_LEN];
         int msglen;
         int bytes_sent;
         if(fgets(message, sizeof(message), stdin)) {
@@ -90,7 +91,7 @@ int main(int argc, char* argv[]) {
         printf("Num bytes of actual message = %d\n", msglen);
         
         printf("Message sent from client = \n");
-        char rxbuf[100];
+        char rxbuf[MAX_LEN];
         int bytesRX = recv(new_fd, rxbuf, sizeof(rxbuf), 0);
 
         if(bytesRX < 0) {
